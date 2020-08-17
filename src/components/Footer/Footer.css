@@ -1,0 +1,46 @@
+.Footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.TextStyle {
+    margin-top: 20px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.mt20 {
+    margin-top: 20px !important
+}
+
+.dice {
+    margin: 20px;
+    text-align: center
+}
+
+.number {
+    font-family: "Press Start 2P", cursive;
+    font-size: 20px;
+    line-height: 24px;
+    padding: 10px;
+    border-radius: 5px;
+    background: #000;
+    color: #FFF;
+    width: 48px;
+    margin: 0 auto;
+    border: 2px solid #FFF
+}
+
+
+.full {
+    width: 100%;
+    display: block
+}
+
+
+.blue {
+    background: #007CFF;
+    color: #FFF;
+    border-color: #0070e6
+}

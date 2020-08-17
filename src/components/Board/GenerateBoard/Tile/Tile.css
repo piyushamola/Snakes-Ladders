@@ -1,0 +1,30 @@
+.tile {
+    position: relative;
+    flex-basis: 95px;
+    height: 90px;
+    border: 1px solid #222;
+    color: #000;
+    background: #F7F7F7
+}
+ .number {
+    font-family: Fantasy, Tahoma, Arial, sans-serif;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    font-size: 24px;
+    line-height: 24px;
+    color: #000;
+    opacity: 0.7
+}
+
+.Panel {
+    position: absolute;
+}
+
+.players {
+    position: absolute;
+}
+
+.tile.white {
+    background-color: #FFF
+}
