@@ -5,4 +5,5 @@ export {
     setGameState,
     setPlayers,
     resetGame,
+    rollDice
 } from './setData'

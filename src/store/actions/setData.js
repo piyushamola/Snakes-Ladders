@@ -35,3 +35,9 @@ export const resetGame = (resetValue) => {
         resetValue : resetValue
     }
 }
+
+export const rollDice = () => {
+    return {
+        type: actionTypes.ROLL_THE_DICE
+    }
+}

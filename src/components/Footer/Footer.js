@@ -45,6 +45,12 @@ const Footer = (props) => {
 		checkWinner(props.players);
 	},[props.players])
 
+	useEffect(() => {
+	  if(props.rollTheDice) {
+		rollDice();
+	  }
+	}, [props.rollTheDice])
+
 	let player_dashboard = (
 		<div>
 			<div className={classes.dice}>
@@ -65,7 +71,7 @@ const Footer = (props) => {
 
     return (
         <div className={classes.Footer}>
-        <div><Panel players={props.players}  dimensions={{cx:"12.5", cy:"12.5", r: "12.5"}}></Panel></div>
+        <div><Panel players={props.players} show  dimensions={{cx:"12.5", cy:"12.5", r: "12.5"}}></Panel></div>
         <div className={classes.TextStyle}>{winner}</div>
         <div>
          {player_dashboard}
@@ -77,7 +83,8 @@ const Footer = (props) => {
 const mapStateToProps = ( state, ownProps ) => {
 	return {
 		players: state.setData.noOfPlayers,
-		gameState : state.setData.gameStarted
+		gameState : state.setData.gameStarted,
+		rollTheDice: state.setData.rollDice
 	}
 }
 

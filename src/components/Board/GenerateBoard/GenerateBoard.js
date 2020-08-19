@@ -79,26 +79,22 @@ const GenerateBoard = (props) => {
 				}
 
                 { props.mySnakes.length > 0 &&
-                        <div className={classes.snakes}>
-                           <svg className={classes.Svg}>
+                        <div >
                             { props.mySnakes.map( snake => {
                                     return <SnakeLadders key={ 'snake_' + snake.id } data={ snake } color={"red"}/>
 
                                 })
                             }
-                            </svg>
                         </div>
                 }
 
                { props.ladders.length > 0 &&
-                        <div className={classes.snakes}>
-                             <svg className={classes.Svg}>
+                        <div>
                             { props.ladders.map( ladder => {
                                     return <SnakeLadders key={ 'ladder_' + ladder.id } data={ ladder } color={"green"}/>
 
                                 })
                             }
-                            </svg>
                         </div>
                 }
 				</div>

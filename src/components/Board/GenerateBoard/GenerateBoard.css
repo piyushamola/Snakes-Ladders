@@ -2,7 +2,7 @@
 .flex {
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
+    /* justify-content: center; */
 }
 
 
@@ -10,19 +10,6 @@
     width: 400px;
     height: 400px;
 }
-
- .snakes {
- 
-    background: rgba(255, 255, 255, 0.05);
-    position: absolute;
-    left: 10;
-    top: 10;
-}
-
-.Svg { 
-    width: 500px;
-    height: 400px;
-} 
 
 .Input {
     width: 100%;

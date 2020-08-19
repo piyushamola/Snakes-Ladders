@@ -16,8 +16,12 @@ const initialState = {
     snakes : [{ id: 'sn_1',  from: 15,   to: 6 }],
     ladders : [{id: 'ld_1', from: 3, to: 12}],
     gameStarted : false,
-    resetValue : false
+    resetValue : false,
+    rollDice : false,
+    resetDice : false
 }
+
+
 
 const computeNewArray = (num, oldArray) => {
     if(num === "2") {
@@ -84,6 +88,16 @@ const changeActiveStatus = (players, diceValue, mySnakes, ladders) => {
     return modifiedPlayers;
 }
 
+
+const setPosition = (players) => {
+    let modifiedPlayers = players.slice(0);
+    for(var i=0; i<modifiedPlayers.length; i++) {
+        modifiedPlayers[i].position = "1"
+    }
+
+    return modifiedPlayers;
+}
+
 const setDataReducer = (state = initialState, action)  => {
     switch(action.type) {
         case actionTypes.NO_OF_PLAYERS:
@@ -97,23 +111,33 @@ const setDataReducer = (state = initialState, action)  => {
         let newState = changeActiveStatus(state.noOfPlayers, action.diceValue, state.snakes, state.ladders)
        return {
            ...state,
-           noOfPlayers: newState
+           rollDice: false,
+           noOfPlayers: newState,
+           resetDice: !state.resetDice
        }
 
-       case actionTypes.GAME_STATE: 
+       case actionTypes.GAME_STATE:
+        if(action.gameStarted === false) {
+            return {
+                ...state,
+                gameStarted : action.gameStarted
+            }
+        }
+        let players = setPosition(state.noOfPlayers)
        return {
            ...state,
+           noOfPlayers : players.slice(0),
            gameStarted : action.gameStarted
        }
 
-       case actionTypes.SET_PLAYERS: 
+       case actionTypes.SET_PLAYERS:
        return {
            ...state,
            noOfPlayers: action.players.slice(0)
        }
 
-       case actionTypes.RESET_GAME : 
-       return {
+       case actionTypes.RESET_GAME :
+       return  {
         noOfPlayers: [
             {
                 position:"1",
@@ -126,11 +150,19 @@ const setDataReducer = (state = initialState, action)  => {
                 active: false
             }
         ],
-        snakes : [{ id: 'sn_1',  from: 15,   to: 6 }, { id: 'sn_2', from : 8, to: 4}],
+        snakes : [{ id: 'sn_1',  from: 15,   to: 6 }],
         ladders : [{id: 'ld_1', from: 3, to: 12}],
         gameStarted : false,
-        resetValue : false
-       }
+        resetValue : false,
+        rollDice : false,
+        resetDice: false
+    }
+
+       case actionTypes.ROLL_THE_DICE:
+           return {
+            ...state,
+            rollDice : true
+           }
 
 
         default:

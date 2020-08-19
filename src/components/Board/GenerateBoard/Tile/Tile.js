@@ -15,7 +15,7 @@ let Tile = ( props ) => {
 			}
 		}
 		return (
-			<Panel players={availablePlayers}  dimensions={{cx:"6", cy:"6", r: "6"}}></Panel>
+			<Panel players={availablePlayers} dimensions={{cx:"6", cy:"6", r: "6"}}></Panel>
 		)
 	}
 
