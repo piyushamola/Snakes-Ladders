@@ -1,3 +1,6 @@
+A simple snake and ladders game that can be played by 2-4 Players. 
+Please find the link to view the project : https://snakeladder-4dd71.web.app/
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
